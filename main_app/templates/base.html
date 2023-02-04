@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coral Collector</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+  </head>
+  <body>
+    <header class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <ul>
+            <li>
+              <a href="/" class="left brand-logo">  Coral Collector</a>
+            </li>
+          </ul>
+          <ul class="right">
+            <li><a href="/about">About</a></li>
+            <li><a href="/corals">View All My Corals</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container">{% block content %} {% endblock %}</main>
+    <footer class="page-footer">
+      <div class="right">
+        All Rights Reserved, © 2023 Coral Collector  
+      </div>
+    </footer>
+  </body>
+</html>
+{% comment %} blocks are used as content setters, essentially i can put anything them like partials and move them around. 
+theyre written onthe page like a block so i can be layerd and stacked  
+in the about html it has the landing/ extention of this html file. they get added on in a sense . 
+
+{% endcomment %}
