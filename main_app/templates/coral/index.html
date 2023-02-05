@@ -3,8 +3,9 @@
 <h1>Coral List</h1>
 
 {%for coral in corals%}
+
 <div class="card">
-<div class='card-content'>
+    <a href="{% url 'detail' coral.id %}">
     <span class='card-title'>{{coral.name}}</span>
     <p>Species: {{coral.species}}</p>
     <p>Descriptions: {{ coral.description }}</p>
@@ -16,6 +17,7 @@
     {% endif %}
 
 </div>
+</a>
 </div>
 
 

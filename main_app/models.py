@@ -25,7 +25,9 @@ class Coral (models.Model):
     description = models.TextField(max_length=250)
     price = models.IntegerField()
 # heree is a many to many relationship
-    food = models.ManyToManyField(Food)
+    # food = models.ManyToManyField(Food)
+    # these feidls also correspeond with what is found in the admin login site 
+    
 # this str line helps print the text in a better way 
     def __str__(self):
         return self.name
@@ -43,6 +45,7 @@ class Feeding(models.Model):
     date = models.DateField('feeing date')
     meal = models.CharField(max_length=1, choices=MEALS, default=MEALS[0][0])
     coral = models.ForeignKey(Coral, on_delete=models.CASCADE)
+    #cascade means that when corals are deleted so will the model for feeding. 
     # this is similar to embeded relationships
     # this cat right ehre is going to directly reference the one we have above ^^
 # dunder method below
