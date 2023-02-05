@@ -25,12 +25,13 @@ class Coral (models.Model):
     description = models.TextField(max_length=250)
     price = models.IntegerField()
 # heree is a many to many relationship
-    # food = models.ManyToManyField(Food)
+    # food = models.ManyToManyField(Food) 
     # these feidls also correspeond with what is found in the admin login site 
     
 # this str line helps print the text in a better way 
     def __str__(self):
         return self.name
+
 
     def get_absolute_url(self):
         return reverse("detail", kwargs={"coral_id": self.id})
