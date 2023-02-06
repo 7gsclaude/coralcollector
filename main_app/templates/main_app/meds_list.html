@@ -1,0 +1,17 @@
+{% extends "base.html"%}
+
+{% block content %}
+
+<h1> Medication LIst</h1>
+{% for med in object_list%}
+
+<a href='{% url "med_detail" med.id%}'> 
+    <div class='card'>
+        <div class='card-content'> 
+            <span class='card-title'> a <span class='{{med.color.lower}}-text'> {{med.color.capitalize}}</span> 
+            {{ med.name }} </span
+        </div>
+    </div>
+
+    {%endfor%}
+    {%endblock%}

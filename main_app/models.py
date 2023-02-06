@@ -6,7 +6,7 @@ from django.urls import reverse
 # Create your models here.
 
 
-class Food(models.Model):
+class Meds(models.Model):
     name = models.CharField(max_length=50)
     color = models.CharField(max_length=20)
 
@@ -15,7 +15,8 @@ class Food(models.Model):
         return f'{self.color} {self.name}'
 
     def get_absolute_url(self):
-        return reverse("food_detail", kwargs={"pk": self.pk})
+        return reverse("med_detail", kwargs={"pk": self.id})
+    #changed self to .id 
     # we use class based views here thats the onky reasib why pk was used
 
 
@@ -25,7 +26,7 @@ class Coral (models.Model):
     description = models.TextField(max_length=250)
     price = models.IntegerField()
 # heree is a many to many relationship
-    # food = models.ManyToManyField(Food) 
+    meds = models.ManyToManyField(Meds) 
     # these feidls also correspeond with what is found in the admin login site 
     
 # this str line helps print the text in a better way 
@@ -59,6 +60,8 @@ class Feeding(models.Model):
 # we need a forign key that links the feeding to the model
 
 # below changes the ordering
+#here is the link to include specifications on fed corals in the future . 
+# https://seir-1114.netlify.app/second-language/week-2/day-3/lecture-materials/intro-to-django-one-to-many-relationships
 
 
 class meta:

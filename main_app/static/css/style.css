@@ -2,7 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: teal;
+    background-color: aqua;
 }
 
 main {
@@ -12,4 +12,7 @@ main {
 footer {
     padding-top: 0;
     text-align: right;
+}
+.nav-wrapper {
+    @extend #b388ff deep-purple accent-1
 }

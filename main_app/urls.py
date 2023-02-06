@@ -13,5 +13,17 @@ urlpatterns = [
     path('corals/create/', views.CoralCreate.as_view(), name='corals_create'),
     path ('corals/<int:pk>/update', views.CoralUpdate.as_view(), name='corals_update'),
     path ('corals/<int:pk>/delete', views.CoralDelete.as_view(), name='corals_delete'),
-    # path('cats/<int:cat_id>add_feeding/', views.add_feeding, name='add_feeding'),
+    path('corals/<int:cat_id>add_feeding/', views.add_feeding, name='add_feeding'),
+    
+    path('meds/', views.MedsIndex.as_view(), name='med_index'),
+    path('meds/create', views.MedsCreate.as_view(), name='med_create'),
+    path('meds/<int:pk>/', views.MedsDetail.as_view(), name='med_detail'),
+    path('meds/<int:pk>/update', views.MedsUpdate.as_view(), name='med_update'),
+    path('meds/<int:pk>/delete', views.MedsDelete.as_view(), name='med_delete'),
+
+
+    # this path assoiatees meds to a specifc cat
+    path('corals/<int:coral_id>/assoc_med/<int:med_id>/',views.assoc_med, name='assoc_med'),
+    #      views.assoc_Med, name='assoc_Med'),
+
 ]
