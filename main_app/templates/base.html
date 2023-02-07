@@ -26,7 +26,7 @@
           </ul>
           <ul class="right">
             <li><a href="/about">About</a></li>
-            
+               {% comment %} {% if user.is_authenticated %} {% endcomment %}
             <li>
               <a href='{% url "med_create" %}'> Add a Medication </a>
             </li>
@@ -36,7 +36,16 @@
 
             <li><a href="{% url 'corals_create' %}">Add a new Coral</a></li>
             <li><a href="/corals">View All My Corals</a></li>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+              
+              {% comment %} {% else %} {% endcomment %}
+             <li><a href="{% url 'login' %}">login</a></li>
+              <li><a href="{% url 'signup' %}">Signup</a></li>
+              {% comment %} {% endif %} {% endcomment %}
+
           </ul>
+          
+
         </div>
       </nav>
     </header>

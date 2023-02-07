@@ -12,6 +12,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+#botot 3 is for importing photos may need it later 
+# import boto3
+import uuid
+
+
 # # Define the home view  
 # def home(request):
 #     return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟﾉ</h1>')
@@ -56,6 +61,35 @@ def assoc_med(request, coral_id,med_id):
   Coral.obejcts.get(id=coral_id).med.add(med_id)
   return redirect('detail', cat_id=med_id)
     
+    
+def signup(request):
+    error_message = 'none'
+    # django view functions can hdnle post and get requests
+    # the way you check is with an if
+    if request.method == 'POST':
+        # if get we anna present the user with a signup form and post/ handle a subission fromthe signup from .
+        # if not then send a new form to the template
+
+        # capture form inputs from submission
+        form = UserCreationForm(request.POST)
+        # validate the from inputs
+        if form.is_valid():
+            # save the new user
+            user = form.save()
+        # login the new user + redirectino
+            login(request, user)
+            return redirect('index')
+        # if invlaid then error message
+    else:
+        error_message = 'invalid credentials'
+
+    form = UserCreationForm()
+    return render(request, "registration/signup.html", {
+        'form': form,
+        'error': error_message
+    })
+
+
     
 class CoralCreate(CreateView):
     model = Coral 

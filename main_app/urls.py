@@ -24,6 +24,10 @@ urlpatterns = [
 
     # this path assoiatees meds to a specifc cat
     path('corals/<int:coral_id>/assoc_med/<int:med_id>/',views.assoc_med, name='assoc_med'),
-    #      views.assoc_Med, name='assoc_Med'),
+
+    
+    path('accounts/signup/', views.signup, name='signup')
+
+    
 
 ]

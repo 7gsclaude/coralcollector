@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -28,7 +29,8 @@ class Coral (models.Model):
 # heree is a many to many relationship
     meds = models.ManyToManyField(Meds) 
     # these feidls also correspeond with what is found in the admin login site 
-    
+      # Add the foreign key linking to a user instance
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 # this str line helps print the text in a better way 
     def __str__(self):
         return self.name
